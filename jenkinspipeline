@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('gitcheckout') {
+            steps {
+                git 'https://github.com/RAHAMSHAIK007/dockercompose.git'
+            }
+        }
+        stage('services')
+        {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+}
